@@ -1,0 +1,17 @@
+﻿@model Mission6_Aken2.Models.ErrorViewModel
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1>Error</h1>
+<h2>An error occurred while processing your request.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> @Model.RequestId
+    </p>
+}
+
+<!-- You can include more detailed error information here as needed -->

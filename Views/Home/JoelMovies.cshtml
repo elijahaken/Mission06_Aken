@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Mission06_Aken.Models.Movie>
+
+@{
+    ViewData["Title"] = "Joel's Movie Collection";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Add a fieldset around the table -->
+<fieldset>
+    <legend>Movie List</legend>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited</th>
+                <th>Lent To</th>
+                <th>Copied to Plex</th>
+                <th>Notes</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <!-- Display the CategoryName instead of the whole Category object -->
+                    <td>@movie.Category.CategoryName</td>
+                    <td>@movie.Title</td>
+                    <td>@movie.Year</td>
+                    <td>@movie.Director</td>
+                    <td>@movie.Rating.ToString()</td>
+                    <td>@movie.Edited</td>
+                    <td>@movie.LentTo</td>
+                    <td>@movie.CopiedToPlex</td>
+                    <td>@movie.Notes</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Home", new { id = movie.MovieId })" class="btn btn-primary">Edit</a>
+                        <a href="@Url.Action("Delete", "Home", new { id = movie.MovieId })" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</fieldset>

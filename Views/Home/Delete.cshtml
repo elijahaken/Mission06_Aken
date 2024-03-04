@@ -1,0 +1,16 @@
+﻿@model Mission06_Aken.Models.Movie
+
+@{
+    ViewData["Title"] = "Confirm Delete";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>Are you sure you want to delete this item?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="MovieId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <!-- Corrected Cancel Link to use asp-controller Tag Helper for consistency -->
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
